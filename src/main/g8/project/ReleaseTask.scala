@@ -1,5 +1,5 @@
 /**
- * This file is part of scala-jfx-cross-platform.
+ * This file is part of scala-jfx-crossplatform.
  *
  * Copyright (c) 2020 Biacco42
  *

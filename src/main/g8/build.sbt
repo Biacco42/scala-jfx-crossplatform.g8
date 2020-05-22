@@ -1,5 +1,5 @@
 /**
- * This file is part of scala-jfx-cross-platform.
+ * This file is part of scala-jfx-crossplatform.
  *
  * Copyright (c) 2020 Biacco42
  *
@@ -44,7 +44,7 @@ lazy val javaFXModules = javaFXModuleIdentifiers.map { id =>
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scala-jfx-crossplatform",
+    name := "$name",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % Test,
     libraryDependencies ++= javaFXModules,
     release := {

@@ -1,7 +1,7 @@
 A [Giter8][g8] template for sbt/scala projects with OpenJFX. This also includes a sbt custom task `release` that builds an release package composed of your application jar, minimized JRE, and launch script.
 
 ```
-sbt new  Biacco42/scala-jfx-crossplatform.g8
+sbt new  Biacco42/scala-jfx-jre-pack.g8
 ```
 
 To release/packaging the app, use `release` task in sbt shell. It will make a package directory in the `release` directory that includes a launch script named same as the project name.
