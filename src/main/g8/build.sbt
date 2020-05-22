@@ -11,10 +11,10 @@ import java.nio.file.Paths
 
 import sbt._
 
-ThisBuild / scalaVersion      := "2.13.1"
+ThisBuild / scalaVersion      := "$scala_version$"
 ThisBuild / version           := "0.1.0-SNAPSHOT"
-ThisBuild / organization      := "info.biacco42"
-ThisBuild / organizationName  := "biacco42"
+ThisBuild / organization      := "$organization$"
+ThisBuild / organizationName  := "$organizationName$"
 ThisBuild / scalacOptions     ++= Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 run / fork                    := true
 run / javaOptions             += "-Djava.library.path=lib"
