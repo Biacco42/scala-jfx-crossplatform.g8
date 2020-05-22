@@ -44,7 +44,7 @@ lazy val javaFXModules = javaFXModuleIdentifiers.map { id =>
 
 lazy val root = (project in file("."))
   .settings(
-    name := "$name",
+    name := "$name$",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % Test,
     libraryDependencies ++= javaFXModules,
     release := {
