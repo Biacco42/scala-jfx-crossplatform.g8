@@ -21,7 +21,7 @@ object ReleaseTask {
                           targetPlatform: String, targetPath: Path, libPath: Path, releasePath: Path,
                           jmodsPath: Path, javaHome: Path, currentPlatform: String): Unit = {
     val jarPath = getJarPath(name, version, scalaVersion, targetPath)
-    println(s"Release jar $jarPath for $targetPlatform")
+    println(s"Release jar $"$"$jarPath for $"$"$targetPlatform")
 
     cleanBeforeBuild(targetPath)
     val depList = getDependencyList(jarPath, jmodsPath, javaHome)
@@ -34,8 +34,8 @@ object ReleaseTask {
   def getJarPath(name: String, version: String, scalaVersion: String, targetPath: Path): Path = {
     val regex = """^(\d\.\d\d).+""".r
     val regex(scalaMajorMinor) = scalaVersion
-    val scalaDirectory = s"scala-$scalaMajorMinor"
-    val jarName = s"$name-assembly-$version.jar"
+    val scalaDirectory = s"scala-$"$"$scalaMajorMinor"
+    val jarName = s"$"$"$name-assembly-$"$"$version.jar"
     Paths.get(targetPath.toString, scalaDirectory, jarName)
   }
 
@@ -73,7 +73,7 @@ object ReleaseTask {
                    currentPlatform: String): Unit = {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HHmmss")
     val dateString = LocalDateTime.now().format(formatter)
-    val packagePath = Paths.get(releasePath.toString, s"$name-$version-$targetPlatform-$dateString")
+    val packagePath = Paths.get(releasePath.toString, s"$"$"$name-$"$"$version-$"$"$targetPlatform-$"$"$dateString")
     IO.createDirectory(packagePath.toFile)
 
     val jrePath = targetPath.resolve("jre")
@@ -99,16 +99,16 @@ object ReleaseTask {
            |@echo off
            |cd /d %~dp0
            |
-           |.${ps}jre${ps}bin${ps}java -jar -Djava.library.path=lib .${ps}$jarName
+           |.$"$"${ps}jre$"$"${ps}bin$"$"${ps}java -jar -Djava.library.path=lib .$"$"${ps}$"$"$jarName
            |""".stripMargin
-      val batchFile = packagePath.resolve(s"$name.bat").toFile
+      val batchFile = packagePath.resolve(s"$"$"$name.bat").toFile
       IO.write(batchFile, batch, IO.utf8)
     } else {
       val shellScript =
         """#!/bin/sh
           |
-          |SCRIPT_DIR=$(cd $(dirname $0); pwd)
-          |cd $SCRIPT_DIR
+          |SCRIPT_DIR=$"$"$(cd $"$"$(dirname $"$"$0); pwd)
+          |cd $"$"$SCRIPT_DIR
           |nohup ./jre/bin/java -jar -Djava.library.path=lib ./"""".stripMargin + jarName + "\" &\n"
 
       val shellScriptFile = packagePath.resolve(name).toFile

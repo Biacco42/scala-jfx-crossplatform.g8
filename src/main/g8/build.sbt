@@ -34,7 +34,7 @@ lazy val targetPlatform = System.getProperty("os.name") match {
 lazy val jreModulePath = Paths.get(javaHome.toString, "jmods")
 
 lazy val javaFXModuleIdentifiers = Seq("base", "controls", "graphics", "fxml", "media", "swing", "web").map { m =>
-  "org.openjfx" % s"javafx-$m" % "14"
+  "org.openjfx" % s"javafx-$"$"$m" % "14"
 }
 
 // Add dependency on JavaFX libraries, OS dependent
